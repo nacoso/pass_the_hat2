@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_charity.user %>
+</p>
+
+<p>
+  <strong>Charity:</strong>
+  <%= @user_charity.charity %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user_charity.status %>
+</p>
+
+<%= link_to 'Edit', edit_user_charity_path(@user_charity) %> |
+<%= link_to 'Back', user_charities_path %>
