@@ -12,16 +12,20 @@ def create
     :source  => params[:stripeToken]
   )
   plan = Stripe::Plan.retrieve("#{params[:plan]}")
+
+
   subscription = Stripe::Subscription.create({
      customer: customer.id,
      plan: plan
   })
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
   end
 
+end
   # user = User.find(params[:user_id])
   # redirect_to user
 end
