@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180205183617) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "charities", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
@@ -23,15 +26,15 @@ ActiveRecord::Schema.define(version: 20180205183617) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "amount"
-    t.integer "user_charity_id"
+    t.bigint "user_charity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_charity_id"], name: "index_donations_on_user_charity_id"
   end
 
   create_table "user_charities", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "charity_id"
+    t.bigint "user_id"
+    t.bigint "charity_id"
     t.boolean "status_favorite"
     t.boolean "status_donated"
     t.datetime "created_at", null: false
@@ -50,4 +53,7 @@ ActiveRecord::Schema.define(version: 20180205183617) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "donations", "user_charities"
+  add_foreign_key "user_charities", "charities"
+  add_foreign_key "user_charities", "users"
 end

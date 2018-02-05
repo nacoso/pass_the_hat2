@@ -24,17 +24,10 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
-    @charity = Charity.new(charity_params)
-
-    respond_to do |format|
-      if @charity.save
-        format.html { redirect_to @charity, notice: 'Charity was successfully created.' }
-        format.json { render :show, status: :created, location: @charity }
-      else
-        format.html { render :new }
-        format.json { render json: @charity.errors, status: :unprocessable_entity }
-      end
-    end
+    new_account = Stripe::Account.create(
+      :type => 'standard',
+      :country => 'US',
+      :email => params[:email]
   end
 
   # PATCH/PUT /charities/1
