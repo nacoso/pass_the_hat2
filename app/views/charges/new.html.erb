@@ -1,0 +1,38 @@
+
+<div class=subscription>
+  <%= form_tag charges_path do %>
+  <h1>Gold Hat Plan </h1>
+  <p>$20 per month</p>
+  <%= hidden_field_tag :plan, "gold_hat" %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="A month's subscription"
+    data-amount="2000"
+    data-locale="auto"></script>
+  <% end %>
+</div>
+<%= form_tag charges_path do %>
+  <h1>Silver Hat Plan </h1>
+  <p>$10 per month</p>
+  <%= hidden_field_tag :plan, "silver_hat" %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="A month's subscription"
+    data-amount="1000"
+    data-locale="auto"></script>
+<% end %>
+
+<%= form_tag charges_path do %>
+  <h1>Platinum Hat Plan </h1>
+  <p>$30 per month</p>
+  <%= hidden_field_tag :plan, "platinum_hat" %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="3000"
+          data-locale="auto"></script>
+<% end %>
+</div>
