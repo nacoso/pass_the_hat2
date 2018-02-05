@@ -1,0 +1,27 @@
+
+ul.left li {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+
+ul.right li {
+    float: right;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+    outline:solid;
+    outline-color:grey;
+    outline-offset: -1px;
+}
+
+li a:hover {
+  background-color:grey;
+  color:black;
+}
