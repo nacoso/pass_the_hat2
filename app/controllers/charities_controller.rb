@@ -25,11 +25,12 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
+    Stripe.api_key = ENV["SECRET_KEY"]
     @charity = Charity.new(charity_params)
     new_account = Stripe::Account.create(
       :type => 'standard',
       :country => 'US',
-      :email => params[:email]
+      :email => params["charity"]["email"]
     )
 
     @charity.charity_id_stripe =  new_account["id"]
