@@ -1,7 +1,7 @@
-<%= form_with(model: charity, local: true) do |form| %>
+<%= form_with(model: charity, local: true) do |f| %>
   <% if charity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user_charity from being saved:</h2>
 
       <ul>
       <% charity.errors.full_messages.each do |message| %>
@@ -10,28 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :charity_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest, id: :charity_password_digest %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :charity_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :charity_id %>
-    <%= form.text_field :charity_id, id: :charity_charity_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <ul style="list-item-style:none">
+  <li>Name: <%= f.text_field :name %></li>
+  <br>
+  <li>Email: <%= f.text_field :email %></li>
+  <br>
+  <li>Password: <%= f.password_field :password %></li>
+  <br>
+  <li>Password Confirmation: <%= f.password_field :password_confirmation %></li>
+  <br>
+</ul>
+ <%= f.submit "Submit" %>
 <% end %>

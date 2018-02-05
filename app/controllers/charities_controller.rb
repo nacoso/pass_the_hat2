@@ -29,6 +29,7 @@ class CharitiesController < ApplicationController
       :type => 'standard',
       :country => 'US',
       :email => params[:email]
+    )
 
     @charity.charity_id_stripe =  new_account["id"]
 
@@ -72,6 +73,6 @@ class CharitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charity_params
-      params.require(:charity).permit(:name, :password_digest, :email, :charity_id)
+      params.require(:charity).permit(:name, :password, :email, :charity_id)
     end
 end

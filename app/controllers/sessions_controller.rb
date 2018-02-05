@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     if user_from_registration || (user && user.authenticate(params[:password]))
       # Save the user id inside the browser cookie. This is how we keep the user logged in when they navigate around our website.
       user ||= user_from_registration
-      session["#{user.class.to_s.downcase}_id".to_sym] = user.id
+      session["stripe_#{user.class.to_s.downcase}_id".to_sym] = user.id
       redirect_to user
 
     else
