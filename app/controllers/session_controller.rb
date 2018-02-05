@@ -3,6 +3,9 @@ class SessionController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    session[:charity_id] = nil
+    redirect_to '/'
   end
 
   def create
