@@ -1,6 +1,6 @@
 class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  # before_action :authorize, except: [:new, :create]
 
   # GET /charities
   # GET /charities.json
