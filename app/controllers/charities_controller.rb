@@ -24,10 +24,20 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
+    @charity = Charity.new(charity_params)
     new_account = Stripe::Account.create(
       :type => 'standard',
       :country => 'US',
       :email => params[:email]
+
+    @charity.charity_id_stripe =  new_account["id"]
+
+    if @charity.save
+      session[:charity_id] = @charity.id
+      redirect_to @charity
+    else
+      redirect_to '/charities/signup'
+    end
   end
 
   # PATCH/PUT /charities/1
