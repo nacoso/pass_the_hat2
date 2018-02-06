@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/charities' => 'charities#index', as: "charities"
   post '/charities' => 'charities#create'
 
-  get '/users/signup' => 'users#new'
+  get '/users/signup' => 'users#new', as: "new_user"
   post '/users' => 'users#create'
 
 
@@ -33,8 +33,6 @@ Rails.application.routes.draw do
   resources :donations
   resources :user_charities
   resources :charities
-  resources :users
-
   resources :charges
 
 end
