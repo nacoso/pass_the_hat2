@@ -34,5 +34,5 @@ Rails.application.routes.draw do
   resources :user_charities
   resources :charities
   resources :charges
-
+  resources :users, only: [:new, :create]
 end
