@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'charities/new-' => "charities#form_recurring", as: "form_recurring"
 
   get '/charities/signup' => 'charities#new'
+  get '/charities' => 'charities#index', as: "charities"
   post '/charities' => 'charities#create'
 
   get '/users/signup' => 'users#new'
