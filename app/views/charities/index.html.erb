@@ -1,33 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Charities</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Password digest</th>
-      <th>Email</th>
-      <th>Charity</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @charities.each do |charity| %>
-      <tr>
-        <td><%= charity.name %></td>
-        <td><%= charity.password_digest %></td>
-        <td><%= charity.email %></td>
-        <td><%= charity.id %></td>
-        <td><%= link_to 'Show', charity %></td>
-        <td><%= link_to 'Edit', edit_charity_path(charity) %></td>
-        <td><%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Charity', new_charity_path %>
+<div id="charities">
+  <body>
+    <p id="notice"><%= notice %></p>
+  <div class="container text-center">
+    <h1 class="display-1">CHARITIES</h1>
+  </div>
+  <br><br>
+      <div class="container-fluid">
+        <div class="jumbotron">
+          <br><br><br>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Charity</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @charities.each do |charity| %>
+              <tr>
+                <td><%= charity.name %></td>
+                <td><%= charity.email %></td>
+                <td><%= charity.id %></td>
+                <td><%= link_to '<button type="button">Donate</button>'.html_safe, charity %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+  </body>
+</div>
