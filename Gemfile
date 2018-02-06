@@ -10,7 +10,9 @@ gem 'omniauth'
 gem 'omniauth-stripe-connect'
 gem 'dotenv-rails'
 gem 'bcrypt', '~> 3.1.7'
+
 gem 'stripe'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record

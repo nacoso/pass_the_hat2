@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get '/users/signup' => 'users#new'
   post '/users' => 'users#create'
 
+
   get '/login' => 'sessions#new'
   get '/login_new_user' => 'sessions#create'
   post '/login' => 'sessions#create'
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   resources :user_charities
   resources :charities
   resources :users
+
   resources :charges
+
 end

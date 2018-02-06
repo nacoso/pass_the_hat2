@@ -1,0 +1,33 @@
+<body>
+
+<nav class="navbar navbar-light">
+  <ul class="left">
+      <li><a class="nav-link active" href="#">Charities</a></li>
+      <li><a class="nav-link" href="#">Contact Us</a></li>
+      <li><a class="nav-link" href="#">About Us</a></li>
+  </ul>
+  <ul class="right">
+      <li><%=link_to "Log In", sessions_new_path, class:"nav-link"%></li>
+      <li><%=link_to "Sign Up", new_user_path, class:"nav-link"%></li>
+  </ul>
+</nav>
+<br>
+<div class="container">
+  <div class="row">
+    <div class='jumbotron col-md'>
+      <h3>CHARITABLE DONATIONS MADE EASY AND REWARDING</h3>
+      <br><br>
+      <%=link_to "GET STARTED!", new_user_path, class:"button btn-primary btn-lg", style: "background-color:grey;color:white;"%>
+
+    </div>
+    <div class='col-md'>
+    </div>
+    <div class='jumbotron col-md'>
+      <h3>JOIN PASS THE HAT'S NETWORK OF CHARITIES</h3>
+      <br><br><br><br>
+
+      <%=link_to "ONBOARDING", new_charity_path, class:"button btn-primary btn-lg", style: "background-color:grey;color:white;"%>
+
+    </div>
+  </div>
+</div>

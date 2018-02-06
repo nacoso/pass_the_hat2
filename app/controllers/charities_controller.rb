@@ -1,5 +1,6 @@
 class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
+  # before_action :authorize, except: [:new, :create]
 
   # GET /charities
   # GET /charities.json
@@ -10,6 +11,9 @@ class CharitiesController < ApplicationController
   # GET /charities/1
   # GET /charities/1.json
   def show
+    #if 
+    account = Stripe::Account.retrieve("id")
+    account.save
   end
 
   # GET /charities/new
@@ -24,11 +28,16 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
+    Stripe.api_key = ENV["SECRET_KEY"]
     @charity = Charity.new(charity_params)
     new_account = Stripe::Account.create(
       :type => 'standard',
       :country => 'US',
-      :email => params[:email]
+
+
+      :email => params["charity"]["email"]
+    )
+
 
     @charity.charity_id_stripe =  new_account["id"]
 
@@ -72,6 +81,6 @@ class CharitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charity_params
-      params.require(:charity).permit(:name, :password_digest, :email, :charity_id)
+      params.require(:charity).permit(:name, :password, :email, :charity_id)
     end
 end
