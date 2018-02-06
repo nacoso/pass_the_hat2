@@ -1,3 +1,18 @@
 // Place all the styles related to the UserCharities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#charity-show .jumbotron {
+  background-color: #ffffff;
+  width: 55%;
+  color: black;
+  box-shadow: RGBA(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.pay-with-card {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.pay-with-card:hover {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
