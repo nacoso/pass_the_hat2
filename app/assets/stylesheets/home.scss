@@ -1,3 +1,6 @@
+body {
+  background-image: url('http://deepimagery.net/events/wp-content/uploads/sites/13/2017/01/donation-.png');
+}
 
 ul.left li {
     float: left;
@@ -22,6 +25,13 @@ ul.right li {
 }
 
 li a:hover {
-  background-color:grey;
-  color:black;
+  background-color:#99ff99;
+  color:white;
+  outline:solid;
+  outline-color: white;
+}
+
+div.jumbotron {
+  background-color: #5DC305;
+  color:white;
 }
