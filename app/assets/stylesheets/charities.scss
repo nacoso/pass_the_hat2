@@ -1,6 +1,7 @@
 // Place all the styles related to the Charities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+<<<<<<< HEAD
 #charities h1 {
   font-style: 'Montserrat', sans-serif;
 }
@@ -22,4 +23,19 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-color:transparent;
+=======
+
+body{
+  background-color: #525252;
+}
+.centered-form{
+	margin-top: 60px;
+
+}
+
+.centered-form .panel{
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+  padding: 5px;
+>>>>>>> bddd7ba374662127a6028b6f2289888875a349f2
 }
