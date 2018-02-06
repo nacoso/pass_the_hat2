@@ -33,8 +33,11 @@ class CharitiesController < ApplicationController
     new_account = Stripe::Account.create(
       :type => 'standard',
       :country => 'US',
+
+
       :email => params["charity"]["email"]
     )
+
 
     @charity.charity_id_stripe =  new_account["id"]
 
