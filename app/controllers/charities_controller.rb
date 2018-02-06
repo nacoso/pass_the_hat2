@@ -25,15 +25,18 @@ class CharitiesController < ApplicationController
   # POST /charities.json
   def create
     @charity = Charity.new(charity_params)
+    new_account = Stripe::Account.create(
+      :type => 'standard',
+      :country => 'US',
+      :email => params[:email]
 
-    respond_to do |format|
-      if @charity.save
-        format.html { redirect_to @charity, notice: 'Charity was successfully created.' }
-        format.json { render :show, status: :created, location: @charity }
-      else
-        format.html { render :new }
-        format.json { render json: @charity.errors, status: :unprocessable_entity }
-      end
+    @charity.charity_id_stripe =  new_account["id"]
+
+    if @charity.save
+      session[:charity_id] = @charity.id
+      redirect_to @charity
+    else
+      redirect_to '/charities/signup'
     end
   end
 
