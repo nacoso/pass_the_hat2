@@ -11,9 +11,9 @@ class CharitiesController < ApplicationController
   # GET /charities/1
   # GET /charities/1.json
   def show
-    #if 
-    account = Stripe::Account.retrieve("id")
-    account.save
+
+    # account = Stripe::Account.retrieve("id")
+    # account.save
   end
 
   # GET /charities/new
@@ -28,18 +28,6 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
-    Stripe.api_key = ENV["SECRET_KEY"]
-    @charity = Charity.new(charity_params)
-    new_account = Stripe::Account.create(
-      :type => 'standard',
-      :country => 'US',
-
-
-      :email => params["charity"]["email"]
-    )
-
-
-    @charity.charity_id_stripe =  new_account["id"]
 
     if @charity.save
       session[:charity_id] = @charity.id
