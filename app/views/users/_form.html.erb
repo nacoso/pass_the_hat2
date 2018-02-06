@@ -1,7 +1,7 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user_charity from being saved:</h2>
 
       <ul>
       <% user.errors.full_messages.each do |message| %>
@@ -10,28 +10,13 @@
       </ul>
     </div>
   <% end %>
+  <ul>
+    <li>First Name: <%= f.text_field :first_name %></li><br>
+    <li>Last Name: <%= f.text_field :last_name %></li><br>
+    <li>Email: <%= f.text_field :email %></li><br>
+    <li>Password: <%= f.password_field :password %></li><br>
+    <li>Password Confirmation: <%= f.password_field :password_confirmation %></li><br>
+    <li>  <%= f.submit "Submit" %> </li>
+  </ul><br>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :user_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :user_first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :user_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest, id: :user_password_digest %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
