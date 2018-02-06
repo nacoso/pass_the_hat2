@@ -11,6 +11,9 @@ class CharitiesController < ApplicationController
   # GET /charities/1
   # GET /charities/1.json
   def show
+    #if 
+    account = Stripe::Account.retrieve("id")
+    account.save
   end
 
   # GET /charities/new
