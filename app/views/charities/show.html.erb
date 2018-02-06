@@ -1,4 +1,10 @@
-<header class="nav-navbar"><%=link_to "Log Out", logout_path, class:"nav-link"%></header>
+<header class="nav-navbar">
+  <%if current_user %>
+  <%=link_to "Log Out", logout_path, class:"nav-link"%>
+  <%else%>
+  <%=link_to "Log In", login_path, class:"button"%>
+  <%end%>
+</header>
 
 <p id="notice"><%= notice %></p>
 <div class="panel-lg">
@@ -24,39 +30,60 @@
 <%= link_to 'Back', charities_path %>
 
 
-<div class=subscription>
-  <%= form_tag charges_path do %>
-    <h1>Gold Hat Plan </h1>
-    <p>$20 per month</p>
-    <%= hidden_field_tag :plan, "gold_hat" %>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  <div class=subscription>
+    <%= form_tag charges_path do %>
+      <h1>Gold Hat Plan </h1>
+      <p>$20 per month</p>
+      <%= hidden_field_tag :plan, "gold_hat" %>
+
+    <% if current_user %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="A month's subscription"
+        data-amount="2000"
+        data-locale="auto"></script>
+    <% else %>
+    <%= link_to "START CONTRIBUTING TODAY!", new_user_path, class: 'button btn-lg' %>
+    <%end%>
+    <%end%>
+
+
+
+  <%= form_tag charges_path do %>
+    <h1>Silver Hat Plan </h1>
+    <p>$10 per month</p>
+    <%= hidden_field_tag :plan, "silver_hat" %>
+    <% if current_user %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="A month's subscription"
+        data-amount="1000"
+        data-locale="auto"></script>
+    <% else %>
+    <%= link_to "START CONTRIBUTING TODAY!", new_user_path, class: 'button btn-lg' %>
+    <%end%>
+
+
+  <% end %>
+
+  <%= form_tag charges_path do %>
+    <h1>Platinum Hat Plan </h1>
+    <p>$30 per month</p>
+    <%= hidden_field_tag :plan, "platinum_hat" %>
+
+    <% if current_user %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-description="A month's subscription"
-      data-amount="2000"
+      data-amount="3000"
       data-locale="auto"></script>
+    <% else %>
+    <%= link_to "START CONTRIBUTING TODAY!", new_user_path, class: 'button btn-lg' %>
+    <%end%>
+
+
+
   <% end %>
-<%= form_tag charges_path do %>
-  <h1>Silver Hat Plan </h1>
-  <p>$10 per month</p>
-  <%= hidden_field_tag :plan, "silver_hat" %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="A month's subscription"
-    data-amount="1000"
-    data-locale="auto"></script>
-<% end %>
-
-<%= form_tag charges_path do %>
-  <h1>Platinum Hat Plan </h1>
-  <p>$30 per month</p>
-  <%= hidden_field_tag :plan, "platinum_hat" %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="3000"
-          data-locale="auto"></script>
-<% end %>
 </div>
