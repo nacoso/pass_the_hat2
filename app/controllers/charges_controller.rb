@@ -25,7 +25,7 @@ def create
     redirect_to new_charge_path
   end
 
-end
+
   # user = User.find(params[:user_id])
   # redirect_to user
 end
