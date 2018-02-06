@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
+<header class="nav-navbar"><%=link_to "Log Out", logout_path, class:"nav-link"%></header>
 
+<p id="notice"><%= notice %></p>
+<div class="panel-lg">
 <p>
   <strong>Name:</strong>
   <%= @charity.name %>
@@ -17,7 +19,7 @@
 
 <p>
   <strong>Charity:</strong>
-  <%= @charity.charity_id %>
+  <%= @charity.id %>
 </p>
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |
