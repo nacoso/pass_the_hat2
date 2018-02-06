@@ -1,37 +1,45 @@
-body {
-  background-image: url('http://deepimagery.net/events/wp-content/uploads/sites/13/2017/01/donation-.png');
-}
 
-ul.left li {
-    float: left;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: transparent;
-}
+  body {
+    background-image: url('http://deepimagery.net/events/wp-content/uploads/sites/13/2017/01/donation-.png');
+    font-family: 'Montserrat', sans-serif;
+  }
+  ul.left li {
+      float: left;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: transparent;
+  }
 
 
-ul.right li {
-    float: right;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: transparent;
+  ul.right li {
+      float: right;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: transparent;
+      outline:solid;
+      outline-color:grey;
+      outline-offset: -1px;
+  }
+
+  li a:hover {
+    background-color:#009900;
+    color:white;
     outline:solid;
-    outline-color:grey;
-    outline-offset: -1px;
-}
+    outline-color: white;
+  }
 
-li a:hover {
-  background-color:#99ff99;
-  color:white;
-  outline:solid;
-  outline-color: white;
-}
+  div.jumbotron.container {
+    color:white;
+    background-color:transparent;
+    border-radius: 25px;
 
-div.jumbotron {
-  background-color: #5DC305;
-  color:white;
-}
+  }
+  div.panel-lg.col-md {
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+  }
